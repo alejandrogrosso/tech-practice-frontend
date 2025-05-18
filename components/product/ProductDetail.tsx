@@ -15,10 +15,12 @@ export default function ProductDetail() {
   const [loadingSamsung, setLoadingSamsung] = useState(true)
   const [errorSamsung, setErrorSamsung] = useState<string | null>(null)
 
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   useEffect(() => {
     setLoading(true)
     setError(null)
-    fetch('http://localhost:3001/api/products/SAMGA55-256')
+    fetch(`${API_BASE}/products/SAMGA55-256`)
       .then(res => {
         if (!res.ok) throw new Error('Producto no encontrado')
         return res.json()
@@ -34,7 +36,7 @@ export default function ProductDetail() {
   useEffect(() => {
     setLoadingSamsung(true)
     setErrorSamsung(null)
-    fetch('http://localhost:3001/api/products/brand/Samsung/showcase')
+    fetch(`${API_BASE}/products/brand/Samsung/showcase`)
       .then(res => {
         if (!res.ok) throw new Error('No se pudieron cargar los productos de Samsung')
         return res.json()
