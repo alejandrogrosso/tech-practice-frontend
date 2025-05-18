@@ -368,10 +368,20 @@ export default function ProductDetail() {
             {/* Descripción */}
             <div className="bg-white rounded-lg px-3 md:px-6 py-4 md:py-5">
               <h2 className="text-black font-bold text-lg mb-4">Descripción</h2>
-              <h3 className="text-base font-semibold mb-1 text-gray-800">Capacidad y eficiencia</h3>
-              <p className="text-gray-700 text-[15px] mb-3">Con su potente procesador y 8 GB de RAM, su computadora logrará un alto rendimiento con una alta velocidad de transmisión de contenido y ejecutará varias aplicaciones al mismo tiempo, sin demoras.</p>
-              <h3 className="text-base font-semibold mb-1 text-gray-800">Capacidad de almacenamiento ilimitada</h3>
-              <p className="text-gray-700 text-[15px] mb-3">Olvídate de borrar. Con su memoria interna de 256 GB puedes descargar todos los archivos y aplicaciones que necesites, guardar fotos y almacenar tus películas, series y videos favoritos para reproducirlos cuando quieras.</p>
+              {Array.isArray(product.description) ? (
+                product.description.map((block, i) => (
+                  <div key={i} className="mb-3">
+                    {block.subtitle && (
+                      <h3 className="text-base font-semibold mb-1 text-gray-800">{block.subtitle}</h3>
+                    )}
+                    {block.text && (
+                      <p className="text-gray-700 text-[15px]">{block.text}</p>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-700 text-[15px] mb-3">{product.description}</p>
+              )}
             </div>
           </div>
         </main>
