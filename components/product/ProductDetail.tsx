@@ -101,44 +101,41 @@ export default function ProductDetail() {
         <main className="flex-1 flex flex-col pt-4 pb-6 md:pb-0">
           {/* Galería + detalles (puede ser grid de 2 columnas) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start px-2 md:px-6">
-            {/* Columna 1: Galería */}
-            <div className="pt-2">
-              <div className="grid grid-cols-[56px_1fr] h-[320px] md:grid-cols-[72px_1fr] md:h-[520px]">
-                {/* Thumbnails */}
-                <div className="flex flex-col gap-2 items-center py-0 overflow-y-auto">
-                  {product.pictures.map((img) => (
-                    <button
-                      key={img.id}
-                      onClick={() => setSelectedImage(img)}
-                      className={`w-14 h-14 md:w-16 md:h-16 border ${selectedImage.id === img.id ? "border-[#3483fa]" : "border-gray-300"} bg-white flex items-center justify-center cursor-pointer transition-colors rounded-[4px]`}
-                      style={{ outline: selectedImage.id === img.id ? '2px solid #3483fa' : 'none' }}
-                    >
-                      <img
-                        src={img.url.startsWith('http') ? img.url.replace('http://localhost:3000', '') : img.url}
-                        alt={product.title}
-                        className="object-contain w-12 h-12 md:w-14 md:h-14"
-                      />
-                    </button>
-                  ))}
-                </div>
-                {/* Imagen principal */}
-                <div className="flex items-center justify-center bg-white h-[320px] md:h-[520px] pt-0">
-                  <img
-                    src={selectedImage.url.startsWith('http') ? selectedImage.url.replace('http://localhost:3000', '') : selectedImage.url}
-                    alt={product.title}
-                    className="object-contain max-h-[500px] max-w-[400px] w-auto h-auto"
-                  />
-                </div>
+            {/* Galería */}
+            <div className="flex flex-col md:flex-row items-center md:items-start pt-2 gap-2 md:gap-4">
+              {/* Thumbnails */}
+              <div className="flex flex-row md:flex-col gap-2 items-center md:items-start mb-2 md:mb-0">
+                {product.pictures.map((img) => (
+                  <button
+                    key={img.id}
+                    onClick={() => setSelectedImage(img)}
+                    className={`w-14 h-14 md:w-16 md:h-16 border ${selectedImage.id === img.id ? "border-[#3483fa]" : "border-gray-300"} bg-white flex items-center justify-center cursor-pointer transition-colors rounded-[4px]`}
+                    style={{ outline: selectedImage.id === img.id ? '2px solid #3483fa' : 'none' }}
+                  >
+                    <img
+                      src={img.url.startsWith('http') ? img.url.replace('http://localhost:3000', '') : img.url}
+                      alt={product.title}
+                      className="object-contain w-12 h-12 md:w-14 md:h-14"
+                    />
+                  </button>
+                ))}
+              </div>
+              {/* Imagen principal */}
+              <div className="flex items-center justify-center bg-white w-full md:ml-4">
+                <img
+                  src={selectedImage.url.startsWith('http') ? selectedImage.url.replace('http://localhost:3000', '') : selectedImage.url}
+                  alt={product.title}
+                  className="object-contain w-full max-w-[480px] h-auto max-h-[520px]"
+                />
               </div>
             </div>
-            {/* Columna 2: Detalles principales */}
-            <div className="pt-2 flex flex-col gap-0">
-              {/* Cabecera con más espacio entre líneas */}
+            {/* Detalles principales */}
+            <div className="pt-2 flex flex-col gap-0 min-w-0">
               <div className="flex flex-col gap-2 mb-4">
                 {/* Línea 1: Logo + link + tilde */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 min-w-0">
                   <img src={product.seller.logo || 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg'} alt={product.seller.name} className="w-6 h-6 object-contain rounded border bg-white" />
-                  <a href="#" className="text-[#3483fa] font-bold text-base hover:underline align-middle">Visita la Tienda oficial de Samsung</a>
+                  <a href="#" className="text-[#3483fa] font-bold text-base hover:underline align-middle truncate" style={{ maxWidth: "100%" }}>Visita la Tienda oficial de Samsung</a>
                   <img src="https://http2.mlstatic.com/frontend-assets/vpp-frontend/cockade.svg" alt="Tienda oficial" className="w-5 h-5 align-middle" />
                 </div>
                 {/* Línea 2: Nuevo | vendidos | corazón */}
