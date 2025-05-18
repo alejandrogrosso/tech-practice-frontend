@@ -197,19 +197,17 @@ export default function ProductDetail() {
                 </div>
               </div>
               {/* Highlights */}
-              <div className="mb-2">
-                <h2 className="font-semibold mb-2 text-base">Lo que tenés que saber de este producto</h2>
-                <ul className="list-disc pl-4 md:pl-5 text-[15px] text-gray-800 space-y-1">
-                  <li>Memoria RAM: 8 GB</li>
-                  <li>Dispositivo desbloqueado para que elijas tu compañía telefónica preferida.</li>
-                  <li>Compatible con redes 5G.</li>
-                  <li>Pantalla Super AMOLED de 6.6 pulgadas.</li>
-                  <li>Batería de 5000 mAh.</li>
-                  <li>Memoria interna de 128 GB.</li>
-                  <li>Con reconocimiento facial y sensor de huellas dactilares.</li>
-                </ul>
-                <a href="#" className="text-blue-600 text-sm mt-2 inline-block hover:underline">Ver características</a>
-              </div>
+              {product.highlights && product.highlights.length > 0 && (
+                <div className="mb-2">
+                  <h2 className="font-semibold mb-2 text-base">Lo que tenés que saber de este producto</h2>
+                  <ul className="list-disc pl-4 md:pl-5 text-[15px] text-gray-800 space-y-1">
+                    {product.highlights.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                  <a href="#" className="text-blue-600 text-sm mt-2 inline-block hover:underline">Ver características</a>
+                </div>
+              )}
               {/* Opciones de compra */}
               <div className="text-xs text-gray-500">Opciones de compra: <a href="#" className="text-blue-600 hover:underline">3 productos nuevos desde $699.000</a></div>
             </div>

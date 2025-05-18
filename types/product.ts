@@ -15,7 +15,7 @@ export interface Product {
   warranty: string;
   warranty_time?: string;
   accepts_mercadopago: boolean;
-  elated_products?: {
+  related_products?: {
     id: string;
     title: string;
     price: number;
@@ -35,6 +35,7 @@ export interface Product {
     cuotas?: string;
     envio?: string;
   }[];
+  highlights?: string[];
 }
 
 export interface Picture {
