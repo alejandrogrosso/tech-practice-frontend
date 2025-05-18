@@ -51,37 +51,37 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </nav>
         </div>
       </div>
-      <div className="flex w-full min-h-screen bg-white">
+      <div className="flex flex-col md:flex-row w-full min-h-screen bg-white">
         {/* Columna principal */}
-        <main className="flex-1 flex flex-col pt-4">
+        <main className="flex-1 flex flex-col pt-4 pb-6 md:pb-0">
           {/* Galería + detalles (puede ser grid de 2 columnas) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start px-2 md:px-6">
             {/* Columna 1: Galería */}
             <div className="pt-2">
-              <div className="grid grid-cols-[56px_1fr] h-[440px]">
+              <div className="grid grid-cols-[40px_1fr] md:grid-cols-[56px_1fr] h-[260px] md:h-[440px]">
                 {/* Thumbnails */}
                 <div className="flex flex-col gap-1 items-center py-0 overflow-y-auto">
                   {product.pictures.map((img) => (
                     <button
                       key={img.id}
                       onClick={() => setSelectedImage(img)}
-                      className={`w-11 h-11 border ${selectedImage.id === img.id ? "border-[#3483fa]" : "border-gray-300"} bg-white flex items-center justify-center cursor-pointer transition-colors rounded-[4px]`}
+                      className={`w-8 h-8 md:w-11 md:h-11 border ${selectedImage.id === img.id ? "border-[#3483fa]" : "border-gray-300"} bg-white flex items-center justify-center cursor-pointer transition-colors rounded-[4px]`}
                       style={{ outline: selectedImage.id === img.id ? '2px solid #3483fa' : 'none' }}
                     >
                       <img
                         src={img.url.startsWith('http') ? img.url.replace('http://localhost:3000', '') : img.url}
                         alt={product.title}
-                        className="object-contain w-8 h-8"
+                        className="object-contain w-6 h-6 md:w-8 md:h-8"
                       />
                     </button>
                   ))}
                 </div>
                 {/* Imagen principal */}
-                <div className="flex items-center justify-center bg-white h-[440px] pt-0">
+                <div className="flex items-center justify-center bg-white h-[180px] md:h-[440px] pt-0">
                   <img
                     src={selectedImage.url.startsWith('http') ? selectedImage.url.replace('http://localhost:3000', '') : selectedImage.url}
                     alt={product.title}
-                    className="object-contain max-h-[420px] w-auto h-auto"
+                    className="object-contain max-h-[160px] md:max-h-[420px] w-auto h-auto"
                     style={{ maxWidth: 340 }}
                   />
                 </div>
@@ -113,9 +113,9 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </div>
               </div>
               {/* Título */}
-              <h1 className="text-[1.45rem] font-bold text-gray-900 mb-2 leading-tight">{product.title}</h1>
+              <h1 className="text-lg md:text-[1.45rem] font-bold text-gray-900 mb-2 leading-tight">{product.title}</h1>
               {/* Estrellas y reviews */}
-              <div className="flex items-center gap-1 mb-1.5">
+              <div className="flex items-center gap-1 mb-1.5 flex-wrap">
                 <span className="text-[#3483fa] font-semibold text-base">4.8</span>
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-[#3483fa] fill-[#3483fa]" />
@@ -151,14 +151,14 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <img
                     src="https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp"
                     alt="Azul oscuro"
-                    className="w-6 h-6 rounded border border-gray-400 object-cover"
+                    className="w-5 h-5 md:w-6 md:h-6 rounded border border-gray-400 object-cover"
                   />
                 </div>
               </div>
               {/* Highlights */}
               <div className="mb-2">
                 <h2 className="font-semibold mb-2 text-base">Lo que tenés que saber de este producto</h2>
-                <ul className="list-disc pl-5 text-[15px] text-gray-800 space-y-1">
+                <ul className="list-disc pl-4 md:pl-5 text-[15px] text-gray-800 space-y-1">
                   <li>Memoria RAM: 8 GB</li>
                   <li>Dispositivo desbloqueado para que elijas tu compañía telefónica preferida.</li>
                   <li>Compatible con redes 5G.</li>
@@ -175,14 +175,14 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </div>
 
           {/* Línea de separación antes de productos relacionados */}
-          <div className="px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-8">
+          <div className="px-2 md:px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-8">
             <div className="pt-2 pb-2">
               <div className="mb-2">
                 <h2 className="text-[1.35rem] font-bold leading-tight text-gray-900">Productos relacionados</h2>
                 <div className="text-xs text-gray-400 mt-1">Promocionado</div>
               </div>
               <div className="relative">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
                   {[ // Ejemplo de productos relacionados
                     {
                       img: 'https://http2.mlstatic.com/D_Q_NP_2X_975071-MLA82294482013_022025-T.webp',
@@ -220,7 +220,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   ].map((prod, i) => (
                     <div
                       key={i}
-                      className="bg-white rounded-lg shadow-sm flex flex-col transition-all duration-200 p-4 h-full"
+                      className="bg-white rounded-lg shadow-sm flex flex-col transition-all duration-200 p-3 md:p-4 h-full"
                     >
                       <div className="flex items-center justify-center mb-2 h-[150px]">
                         <img
@@ -256,12 +256,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </div>
 
           {/* Línea de separación antes de productos de Samsung */}
-          <div className="px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-12">
+          <div className="px-2 md:px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-12">
             <div className="pt-2 pb-2">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Productos de {product.brand}</h2>
               <div className="relative">
                 {/* Grid responsive: 1 columna en mobile, 2 en desktop */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {[ // Ejemplo de productos de la tienda
                     {
                       img: 'https://http2.mlstatic.com/D_Q_NP_2X_975071-MLA82294482013_022025-T.webp',
@@ -287,12 +287,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     <div key={i} className="relative">
                       <a
                         href={prod.link}
-                        className="flex bg-white border border-gray-300 rounded-lg p-4 md:p-6 gap-4 md:gap-6 items-center hover:shadow-sm transition-shadow min-h-[120px] md:min-h-[160px] w-full"
+                        className="flex bg-white border border-gray-300 rounded-lg p-3 md:p-6 gap-3 md:gap-6 items-center hover:shadow-sm transition-shadow min-h-[90px] md:min-h-[160px] w-full"
                       >
                         <img
                           src={prod.img}
                           alt={prod.title}
-                          className="object-contain rounded border bg-white w-24 h-24 md:w-28 md:h-28"
+                          className="object-contain rounded border bg-white w-16 h-16 md:w-24 md:h-24 md:w-28 md:h-28"
                         />
                         <div className="flex-1 min-w-0">
                           <div className="text-base md:text-lg font-semibold text-gray-900 leading-tight mb-1 truncate">{prod.title}</div>
@@ -325,14 +325,14 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </div>
 
           {/* Línea de separación antes de características del producto */}
-          <div className="flex flex-col gap-8 max-w-[1200px] mx-auto px-6 mt-8 mb-12 border-t border-gray-200">
+          <div className="flex flex-col gap-6 md:gap-8 max-w-[1200px] mx-auto px-2 md:px-6 mt-8 mb-12 border-t border-gray-200">
             {/* Características del producto - igual al ejemplo */}
             <div className="bg-white rounded-lg p-0">
-              <div className="px-5 pt-5 pb-2">
+              <div className="px-3 md:px-5 pt-4 md:pt-5 pb-2">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">Características del producto</h2>
               </div>
-              <div className="px-5 py-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+              <div className="px-3 md:px-5 py-4 md:py-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 md:gap-x-4 gap-y-2">
                   {/* Columna 1 */}
                   <div className="flex flex-col gap-4">
                     {/* Tamaño de pantalla */}
@@ -406,7 +406,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {/* Línea de separación antes de descripción */}
             <div className="border-t border-gray-200" />
             {/* Descripción */}
-            <div className="bg-white rounded-lg px-6 py-5">
+            <div className="bg-white rounded-lg px-3 md:px-6 py-4 md:py-5">
               <h2 className="text-black font-bold text-lg mb-4">Descripción</h2>
               <h3 className="text-base font-semibold mb-1 text-gray-800">Capacidad y eficiencia</h3>
               <p className="text-gray-700 text-[15px] mb-3">Con su potente procesador y 8 GB de RAM, su computadora logrará un alto rendimiento con una alta velocidad de transmisión de contenido y ejecutará varias aplicaciones al mismo tiempo, sin demoras.</p>
@@ -416,9 +416,9 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </div>
         </main>
         {/* Sidebar sticky */}
-        <aside className="w-[320px] flex flex-col gap-6 pt-4">
+        <aside className="w-full md:w-[320px] flex flex-col gap-4 md:gap-6 pt-4">
           {/* Bloque: Envío, stock, botones, vendedor y protección */}
-          <div className="bg-white border border-gray-200 rounded-lg p-5 flex flex-col gap-4 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-5 flex flex-col gap-3 md:gap-4 shadow-sm">
             {/* Envío gratis */}
             <div>
               <span className="text-[#00a650] font-bold">Envío gratis</span>
