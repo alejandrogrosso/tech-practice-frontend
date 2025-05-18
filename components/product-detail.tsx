@@ -1,17 +1,31 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Heart, Star, Truck, Shield, Store } from "lucide-react"
 import { Product } from "@/types/product"
 
-interface ProductDetailProps {
-  product: Product
-}
-
-export default function ProductDetail({ product }: ProductDetailProps) {
-  // Estado para la imagen seleccionada
-  const [selectedImage, setSelectedImage] = useState(product.pictures[0])
+export default function ProductDetail() {
+  const [product, setProduct] = useState<Product | null>(null)
+  const [selectedImage, setSelectedImage] = useState<any>(null)
   const [quantity, setQuantity] = useState(1)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setLoading(true)
+    setError(null)
+    fetch('http://localhost:3001/api/products/SAMGA55-256')
+      .then(res => {
+        if (!res.ok) throw new Error('Producto no encontrado')
+        return res.json()
+      })
+      .then(data => {
+        setProduct(data)
+        setSelectedImage(data.pictures[0])
+      })
+      .catch(err => setError(err.message))
+      .finally(() => setLoading(false))
+  }, [])
 
   // Sugerencias de ejemplo
   const suggestions = [
@@ -23,6 +37,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     'samsung',
     'samsung galaxy s54',
   ];
+
+  if (loading) return <div className="p-8 text-center text-gray-500">Cargando producto...</div>;
+  if (error) return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] bg-[#f7f7f7]">
+      <svg className="w-16 h-16 text-red-400 mb-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#f87171" strokeWidth="2" fill="#fee2e2"/><path d="M9.17 9.17a4 4 0 0 1 5.66 5.66M9 15h.01M15 15h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg>
+      <h2 className="text-2xl font-bold text-red-500 mb-2">Producto no encontrado</h2>
+      <p className="text-gray-600 mb-4">El producto que buscas no existe, fue eliminado o el enlace es incorrecto.</p>
+      <a href="/" className="px-4 py-2 bg-[#3483fa] text-white rounded hover:bg-blue-700 transition">Volver al inicio</a>
+    </div>
+  );
+  if (!product) return null;
 
   return (
     <>
