@@ -371,7 +371,7 @@ export default function ProductDetail() {
                   </select>
                   <svg className="w-4 h-4 text-gray-400 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
-                <span className="text-gray-400 text-xs align-middle">(+50 disponibles)</span>
+                <span className="text-gray-400 text-xs align-middle">(+{product.available_quantity} disponibles)</span>
               </div>
             </div>
             {/* Botones de compra */}
