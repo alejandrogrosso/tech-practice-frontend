@@ -224,58 +224,23 @@ export default function ProductDetail() {
               </div>
               <div className="relative">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-                  {[ // Ejemplo de productos relacionados
-                    {
-                      img: 'https://http2.mlstatic.com/D_Q_NP_2X_975071-MLA82294482013_022025-T.webp',
-                      title: 'Samsung Galaxy M55 5g 8/256gb Dual Sim Tiendazero',
-                      price: '421',
-                      decimals: '15',
-                      currency: 'US$',
-                      off: '13% OFF',
-                      cuotas: 'en 10 cuotas de $1.839 sin interés',
-                      envio: 'Envío gratis',
-                      link: '#',
-                    },
-                    {
-                      img: 'https://http2.mlstatic.com/D_Q_NP_2X_877874-MLA82154417427_012025-T.webp',
-                      title: 'Motorola Edge 50 Fusion 5g 256 Gb Azul Ártico 8 Gb Ram',
-                      price: '419',
-                      decimals: '00',
-                      currency: 'US$',
-                      off: '11% OFF',
-                      cuotas: 'en 10 cuotas de $1.826 sin interés',
-                      envio: 'Envío gratis',
-                      link: '#',
-                    },
-                    {
-                      img: 'https://http2.mlstatic.com/D_Q_NP_2X_944254-MLA82612633086_032025-T.webp',
-                      title: 'Samsung Galaxy A16 5g 8gb 256gb Negro Tranza',
-                      price: '326',
-                      decimals: '74',
-                      currency: 'US$',
-                      off: '3% OFF',
-                      cuotas: 'en 10 cuotas de $1.424 sin interés',
-                      envio: 'Envío gratis',
-                      link: '#',
-                    },
-                  ].map((prod, i) => (
+                  {(product.sidebar_related_products && product.sidebar_related_products.length > 0 ? product.sidebar_related_products : []).map((prod, i, arr) => (
                     <div
                       key={i}
                       className="bg-white rounded-lg shadow-sm flex flex-col transition-all duration-200 p-3 md:p-4 h-full"
                     >
                       <div className="flex items-center justify-center mb-2 h-[150px]">
                         <img
-                          src={prod.img}
+                          src={prod.image}
                           alt={prod.title}
                           width={120}
                           height={120}
                           className="object-contain rounded max-h-[120px]"
                         />
                       </div>
-                      <a href={prod.link} className="text-[15px] font-medium text-gray-900 hover:underline line-clamp-2 mb-1 min-h-[40px]">{prod.title}</a>
+                      <a href={'#'} className="text-[15px] font-medium text-gray-900 hover:underline line-clamp-2 mb-1 min-h-[40px]">{prod.title}</a>
                       <div className="flex items-center justify-between mt-1 mb-1">
-                        <div className="text-gray-400 text-xs">{prod.currency}</div>
-                        <div className="text-2xl font-bold text-gray-900">{prod.price}<sup className="text-xs align-super">{prod.decimals}</sup></div>
+                        <div className="text-2xl font-bold text-gray-900">US$ {prod.price}</div>
                         <div className="text-xs text-green-600 font-semibold ml-2">{prod.off}</div>
                       </div>
                       <div className="text-xs text-gray-500 mb-1">{prod.cuotas}</div>
@@ -543,76 +508,27 @@ export default function ProductDetail() {
             <div className="px-4 pt-4 pb-1 font-bold text-gray-800 text-base">Productos relacionados</div>
             <div className="px-4 text-xs text-gray-400 mb-2">Promocionado</div>
             <div className="flex flex-col gap-3 px-4 pb-4">
-              {[ // Ejemplo de productos relacionados
-                {
-                  img: 'https://http2.mlstatic.com/D_Q_NP_2X_975071-MLA82294482013_022025-T.webp',
-                  title: 'Samsung Galaxy M55 5g 8/256gb Dual Sim Tiendazero',
-                  price: '421',
-                  decimals: '15',
-                  currency: 'US$',
-                  off: '13% OFF',
-                  cuotas: '10 cuotas de $1.839,70 sin interés',
-                  envio: 'Envío gratis',
-                  old: '485',
-                  link: '#',
-                },
-                {
-                  img: 'https://http2.mlstatic.com/D_Q_NP_2X_877874-MLA82154417427_012025-T.webp',
-                  title: 'Motorola Edge 50 Fusion 5g 256 Gb Azul Ártico 8 Gb Ram',
-                  price: '419',
-                  decimals: '00',
-                  currency: 'US$',
-                  off: '11% OFF',
-                  cuotas: '10 cuotas de $1.826,84 sin interés',
-                  envio: 'Envío gratis',
-                  old: '435',
-                  link: '#',
-                },
-                {
-                  img: 'https://http2.mlstatic.com/D_Q_NP_2X_944254-MLA82612633086_032025-T.webp',
-                  title: 'Samsung Galaxy A16 5g 8gb 256gb Negro Tranza',
-                  price: '326',
-                  decimals: '74',
-                  currency: 'US$',
-                  off: '3% OFF',
-                  cuotas: '10 cuotas de $1.424,59 sin interés',
-                  envio: 'Envío gratis',
-                  old: '336.85',
-                  link: '#',
-                },
-                {
-                  img: 'https://http2.mlstatic.com/D_Q_NP_2X_877874-MLA82154417427_012025-T.webp',
-                  title: 'Motorola G85 5g 256gb Gris 8ram',
-                  price: '329',
-                  decimals: '19',
-                  currency: 'US$',
-                  off: '10% OFF',
-                  cuotas: '10 cuotas de $1.434,44 sin interés',
-                  envio: 'Envío gratis',
-                  old: '338',
-                  link: '#',
-                },
-              ].map((prod, i) => (
+              {(product.sidebar_related_products && product.sidebar_related_products.length > 0 ? product.sidebar_related_products : []).map((prod, i) => (
                 <a
                   key={i}
-                  href={prod.link}
+                  href={'#'}
                   className="flex gap-2 items-start group"
                 >
                   <img
-                    src={prod.img}
+                    src={prod.image}
                     alt={prod.title}
                     width={56}
                     height={56}
                     className="object-contain rounded max-h-[56px] min-w-[56px] bg-white border"
                   />
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs text-gray-400 line-through">US$ {prod.old}</div>
+                    {prod.old_price && <div className="text-xs text-gray-400 line-through">US$ {prod.old_price}</div>}
                     <div className="flex items-baseline gap-1">
                       <span className="text-base font-bold text-gray-900">US$ {prod.price}</span>
                       <span className="text-xs text-green-600 font-semibold">{prod.off}</span>
                     </div>
-                    <div className="text-xs text-green-600 font-semibold leading-tight">{prod.cuotas}</div>
-                    <div className="text-xs text-green-600 font-semibold leading-tight">{prod.envio}</div>
+                    {prod.cuotas && <div className="text-xs text-green-600 font-semibold leading-tight">{prod.cuotas}</div>}
+                    {prod.envio && <div className="text-xs text-green-600 font-semibold leading-tight">{prod.envio}</div>}
                     <div className="text-xs text-gray-800 mt-0.5 truncate group-hover:underline">{prod.title}</div>
                   </div>
                 </a>
