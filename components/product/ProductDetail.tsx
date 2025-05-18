@@ -103,31 +103,30 @@ export default function ProductDetail() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start px-2 md:px-6">
             {/* Columna 1: Galería */}
             <div className="pt-2">
-              <div className="grid grid-cols-[40px_1fr] md:grid-cols-[56px_1fr] h-[260px] md:h-[440px]">
+              <div className="grid grid-cols-[56px_1fr] h-[320px] md:grid-cols-[72px_1fr] md:h-[520px]">
                 {/* Thumbnails */}
-                <div className="flex flex-col gap-1 items-center py-0 overflow-y-auto">
+                <div className="flex flex-col gap-2 items-center py-0 overflow-y-auto">
                   {product.pictures.map((img) => (
                     <button
                       key={img.id}
                       onClick={() => setSelectedImage(img)}
-                      className={`w-8 h-8 md:w-11 md:h-11 border ${selectedImage.id === img.id ? "border-[#3483fa]" : "border-gray-300"} bg-white flex items-center justify-center cursor-pointer transition-colors rounded-[4px]`}
+                      className={`w-14 h-14 md:w-16 md:h-16 border ${selectedImage.id === img.id ? "border-[#3483fa]" : "border-gray-300"} bg-white flex items-center justify-center cursor-pointer transition-colors rounded-[4px]`}
                       style={{ outline: selectedImage.id === img.id ? '2px solid #3483fa' : 'none' }}
                     >
                       <img
                         src={img.url.startsWith('http') ? img.url.replace('http://localhost:3000', '') : img.url}
                         alt={product.title}
-                        className="object-contain w-6 h-6 md:w-8 md:h-8"
+                        className="object-contain w-12 h-12 md:w-14 md:h-14"
                       />
                     </button>
                   ))}
                 </div>
                 {/* Imagen principal */}
-                <div className="flex items-center justify-center bg-white h-[180px] md:h-[440px] pt-0">
+                <div className="flex items-center justify-center bg-white h-[320px] md:h-[520px] pt-0">
                   <img
                     src={selectedImage.url.startsWith('http') ? selectedImage.url.replace('http://localhost:3000', '') : selectedImage.url}
                     alt={product.title}
-                    className="object-contain max-h-[160px] md:max-h-[420px] w-auto h-auto"
-                    style={{ maxWidth: 340 }}
+                    className="object-contain max-h-[500px] max-w-[400px] w-auto h-auto"
                   />
                 </div>
               </div>
@@ -184,19 +183,19 @@ export default function ProductDetail() {
               </div>
               <div className="text-[#00a650] font-semibold text-base mb-1">en 10 cuotas de $1.914<sup className='text-xs align-super'>00</sup> sin interés</div>
               {/* Bloque de promo */}
-              <div className="inline-block bg-[#e3edfb] text-[#3483fa] text-xs font-semibold px-2 py-1 rounded mt-1 mb-1">10% OFF OCA Blue Visa</div>
+              <div className="inline-block bg-[#e3edfb] text-[#3483fa] text-xs font-semibold px-1.5 py-1 rounded mt-1 mb-1 max-w-max">10% OFF OCA Blue Visa</div>
               <div>
                 <a href="#" className="text-[#3483fa] text-xs hover:underline">Ver medios de pago y promociones</a>
               </div>
               {/* Color */}
-              <div className="mb-2">
+              <div className="mb-6">
                 <span className="font-semibold">Color: </span>
                 <span className="text-gray-700">Azul oscuro</span>
-                <div className="mt-2">
+                <div className="mt-4 flex items-center gap-4">
                   <img
                     src="https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp"
                     alt="Azul oscuro"
-                    className="w-5 h-5 md:w-6 md:h-6 rounded border border-gray-400 object-cover"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded border border-gray-400 object-cover"
                   />
                 </div>
               </div>
@@ -393,9 +392,9 @@ export default function ProductDetail() {
           {/* Bloque: Envío, stock, botones, vendedor y protección */}
           <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-5 flex flex-col gap-3 md:gap-4 shadow-sm">
             {/* Envío gratis */}
-            <div>
-              <span className="text-[#00a650] font-bold">Envío gratis</span>
-              <span className="text-gray-800 font-bold"> a todo el país</span>
+            <div className="mb-3">
+              <span className="text-[#00a650] font-bold text-lg">Envío gratis</span>
+              <span className="text-gray-800 font-bold text-base"> a todo el país</span>
               <div className="text-xs text-gray-500 leading-tight">Conocé los tiempos y las formas de envío.</div>
               <a href="#" className="text-[#3483fa] text-xs leading-tight hover:underline">Calcular cuándo llega</a>
             </div>
