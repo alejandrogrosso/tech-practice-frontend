@@ -1,4 +1,4 @@
-import ProductDetail from "@/components/product-detail"
+import ProductDetail from '@/components/product/ProductDetail'
 import { getProduct, checkApiHealth, APIError } from "@/lib/api"
 
 export default async function Home() {
@@ -22,7 +22,7 @@ export default async function Home() {
 
     return (
       <main className="min-h-screen bg-[#EBEBEB]">
-        <ProductDetail product={product} />
+        <ProductDetail />
       </main>
     )
   } catch (error) {

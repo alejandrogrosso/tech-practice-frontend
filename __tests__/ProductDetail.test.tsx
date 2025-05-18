@@ -1,5 +1,6 @@
+import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-import ProductDetail from './product-detail';
+import ProductDetail from '../components/product/ProductDetail';
 
 beforeEach(() => {
   global.fetch = jest.fn(() =>
@@ -36,4 +37,4 @@ describe('ProductDetail', () => {
       expect(screen.getByText(/Samsung Galaxy A55 5G/i)).toBeInTheDocument();
     });
   });
-});
+}); 
