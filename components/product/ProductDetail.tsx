@@ -10,6 +10,9 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [samsungProducts, setSamsungProducts] = useState<any[]>([])
+  const [loadingSamsung, setLoadingSamsung] = useState(true)
+  const [errorSamsung, setErrorSamsung] = useState<string | null>(null)
 
   useEffect(() => {
     setLoading(true)
@@ -25,6 +28,19 @@ export default function ProductDetail() {
       })
       .catch(err => setError(err.message))
       .finally(() => setLoading(false))
+  }, [])
+
+  useEffect(() => {
+    setLoadingSamsung(true)
+    setErrorSamsung(null)
+    fetch('http://localhost:3001/api/products/brand/Samsung/showcase')
+      .then(res => {
+        if (!res.ok) throw new Error('No se pudieron cargar los productos de Samsung')
+        return res.json()
+      })
+      .then(data => setSamsungProducts(data))
+      .catch(err => setErrorSamsung(err.message))
+      .finally(() => setLoadingSamsung(false))
   }, [])
 
   // Sugerencias de ejemplo
@@ -283,69 +299,54 @@ export default function ProductDetail() {
           {/* Línea de separación antes de productos de Samsung */}
           <div className="px-2 md:px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-12">
             <div className="pt-2 pb-2">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Productos de {product.brand}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Productos de Samsung</h2>
               <div className="relative">
                 {/* Grid responsive: 1 columna en mobile, 2 en desktop */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  {[ // Ejemplo de productos de la tienda
-                    {
-                      img: 'https://http2.mlstatic.com/D_Q_NP_2X_975071-MLA82294482013_022025-T.webp',
-                      title: 'Samsung Galaxy S25 256 Gb Garantía Oficial',
-                      price: '959',
-                      old: '1.299',
-                      off: '26% OFF',
-                      cuotas: '10 cuotas de $ 4.181,24 sin interés',
-                      envio: 'Envío gratis',
-                      link: '#',
-                    },
-                    {
-                      img: 'https://http2.mlstatic.com/D_Q_NP_2X_877874-MLA82154417427_012025-T.webp',
-                      title: 'Samsung Galaxy S25 Plus 512 Gb Garantía Oficial',
-                      price: '1.379',
-                      old: '1.699',
-                      off: '18% OFF',
-                      cuotas: '10 cuotas de $ 6.012,44 sin interés',
-                      envio: 'Envío gratis',
-                      link: '#',
-                    },
-                  ].map((prod, i, arr) => (
-                    <div key={i} className="relative">
-                      <a
-                        href={prod.link}
-                        className="flex bg-white border border-gray-300 rounded-lg p-3 md:p-6 gap-3 md:gap-6 items-center hover:shadow-sm transition-shadow min-h-[90px] md:min-h-[160px] w-full"
-                      >
-                        <img
-                          src={prod.img}
-                          alt={prod.title}
-                          className="object-contain rounded border bg-white w-16 h-16 md:w-24 md:h-24 md:w-28 md:h-28"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-base md:text-lg font-semibold text-gray-900 leading-tight mb-1 truncate">{prod.title}</div>
-                          <div className="text-xs text-gray-400 line-through">US$ {prod.old}</div>
-                          <div className="flex items-baseline gap-2 mb-1">
-                            <span className="text-2xl font-bold text-gray-900">US$ {prod.price}</span>
-                            <span className="text-base text-green-600 font-semibold">{prod.off}</span>
-                          </div>
-                          <div className="text-base text-green-600 font-semibold leading-tight">{prod.cuotas}</div>
-                          <div className="text-base text-green-600 font-semibold leading-tight">{prod.envio}</div>
-                        </div>
-                      </a>
-                      {/* Flecha visual solo en la segunda card en desktop, no tapa la card */}
-                      {i === arr.length - 1 && (
-                        <button
-                          className="hidden md:flex items-center justify-center absolute right-[-32px] top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full w-10 h-10 shadow-md"
-                          aria-label="Siguiente"
-                          tabIndex={-1}
-                          style={{ pointerEvents: 'none' }}
+                {loadingSamsung ? (
+                  <div className="text-center text-gray-500 py-8">Cargando productos de Samsung...</div>
+                ) : errorSamsung ? (
+                  <div className="text-center text-red-500 py-8">{errorSamsung}</div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    {samsungProducts.slice(0, 2).map((prod, i, arr) => (
+                      <div key={i} className="relative">
+                        <a
+                          href={prod.link}
+                          className="flex bg-white border border-gray-300 rounded-lg p-3 md:p-6 gap-3 md:gap-6 items-center hover:shadow-sm transition-shadow min-h-[90px] md:min-h-[160px] w-full"
                         >
-                          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 32 32" fill="rgba(0, 0, 0, 0.9)"><path d="M11.943 6.99999L20.9383 15.9953L11.9336 25L12.9943 26.0607L23.0596 15.9953L13.0036 5.93933L11.943 6.99999Z" fill="rgba(0, 0, 0, 0.9)"/></svg>
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                          <img
+                            src={prod.img}
+                            alt={prod.title}
+                            className="object-contain rounded border bg-white w-16 h-16 md:w-24 md:h-24 md:w-28 md:h-28"
+                          />
+                          <div className="flex-1 min-w-0">
+                            <div className="text-base md:text-lg font-semibold text-gray-900 leading-tight mb-1 truncate">{prod.title}</div>
+                            <div className="text-xs text-gray-400 line-through">US$ {prod.old}</div>
+                            <div className="flex items-baseline gap-2 mb-1">
+                              <span className="text-2xl font-bold text-gray-900">US$ {prod.price}</span>
+                              <span className="text-base text-green-600 font-semibold">{prod.off}</span>
+                            </div>
+                            <div className="text-base text-green-600 font-semibold leading-tight">{prod.cuotas}</div>
+                            <div className="text-base text-green-600 font-semibold leading-tight">{prod.envio}</div>
+                          </div>
+                        </a>
+                        {/* Flecha visual solo en la última card en desktop, no tapa la card */}
+                        {i === arr.length - 1 && (
+                          <button
+                            className="hidden md:flex items-center justify-center absolute right-[-32px] top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full w-10 h-10 shadow-md"
+                            aria-label="Siguiente"
+                            tabIndex={-1}
+                            style={{ pointerEvents: 'none' }}
+                          >
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 32 32" fill="rgba(0, 0, 0, 0.9)"><path d="M11.943 6.99999L20.9383 15.9953L11.9336 25L12.9943 26.0607L23.0596 15.9953L13.0036 5.93933L11.943 6.99999Z" fill="rgba(0, 0, 0, 0.9)"/></svg>
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-              <a href="#" className="block text-blue-600 text-base font-semibold mt-4 hover:underline">Ver más productos de {product.brand}</a>
+              <a href="#" className="block text-blue-600 text-base font-semibold mt-4 hover:underline">Ver más productos de Samsung</a>
             </div>
           </div>
 
