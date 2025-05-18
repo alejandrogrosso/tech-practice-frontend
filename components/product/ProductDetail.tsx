@@ -224,7 +224,7 @@ export default function ProductDetail() {
               </div>
               <div className="relative">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-                  {(product.sidebar_related_products && product.sidebar_related_products.length > 0 ? product.sidebar_related_products : []).map((prod, i, arr) => (
+                  {(product.related_products && product.related_products.length > 0 ? product.related_products: []).map((prod, i, arr) => (
                     <div
                       key={i}
                       className="bg-white rounded-lg shadow-sm flex flex-col transition-all duration-200 p-3 md:p-4 h-full"

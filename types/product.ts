@@ -15,6 +15,16 @@ export interface Product {
   warranty: string;
   warranty_time?: string;
   accepts_mercadopago: boolean;
+  elated_products?: {
+    id: string;
+    title: string;
+    price: number;
+    old_price?: number;
+    off?: string;
+    image: string;
+    cuotas?: string;
+    envio?: string;
+  }[];
   sidebar_related_products?: {
     id: string;
     title: string;
