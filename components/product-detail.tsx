@@ -122,27 +122,37 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 ))}
                 <span className="text-xs text-gray-500">(759)</span>
               </div>
-              {/* Precio y cuotas */}
-              <div className="flex items-end gap-2 mb-0.5">
-                <span className="text-base text-gray-700">US$</span>
-                <span className="text-3xl font-bold text-gray-900">{product.price}</span>
+              {/* Precio anterior tachado arriba */}
+              {product.original_price && (
+                <div className="text-base text-gray-400 line-through mb-0.5">US$ {product.original_price}</div>
+              )}
+              {/* Precio actual, descuento y signo de pregunta */}
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-3xl font-bold text-gray-900">US$ {product.price}</span>
                 {product.original_price && (
-                  <span className="text-gray-400 line-through text-base ml-2">US$ {product.original_price}</span>
-                )}
-                {product.original_price && (
-                  <span className="text-green-600 font-semibold text-xs ml-2">
+                  <span className="flex items-center text-base text-[#00a650] font-semibold ml-2">
                     {Math.round((1 - product.price / product.original_price) * 100)}% OFF
+                    {/* Signo de pregunta azul claro */}
+                    <svg className="w-4 h-4 ml-1 align-middle" fill="#3483fa" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#e3edfb"/><text x="8" y="12" textAnchor="middle" fontSize="10" fill="#3483fa">?</text></svg>
                   </span>
                 )}
               </div>
-              <div className="text-green-600 font-semibold mb-0.5 text-xs">Mismo precio en 3 cuotas de $313.333 sin interés</div>
-              <div className="text-xs text-gray-500 mb-2">Precio sin impuestos nacionales: $776.859</div>
+              <div className="text-[#00a650] font-semibold text-base mb-1">en 10 cuotas de $1.914<sup className='text-xs align-super'>00</sup> sin interés</div>
+              {/* Bloque de promo */}
+              <div className="inline-block bg-[#e3edfb] text-[#3483fa] text-xs font-semibold px-2 py-1 rounded mt-1 mb-1">10% OFF OCA Blue Visa</div>
+              <div>
+                <a href="#" className="text-[#3483fa] text-xs hover:underline">Ver medios de pago y promociones</a>
+              </div>
               {/* Color */}
               <div className="mb-2">
                 <span className="font-semibold">Color: </span>
                 <span className="text-gray-700">Azul oscuro</span>
                 <div className="mt-2">
-                  <span className="inline-block w-6 h-6 rounded border border-gray-400 bg-gray-100"></span>
+                  <img
+                    src="https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp"
+                    alt="Azul oscuro"
+                    className="w-6 h-6 rounded border border-gray-400 object-cover"
+                  />
                 </div>
               </div>
               {/* Highlights */}
