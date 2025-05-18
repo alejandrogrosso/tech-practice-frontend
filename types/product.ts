@@ -36,6 +36,7 @@ export interface Product {
     envio?: string;
   }[];
   highlights?: string[];
+  available_quantity?: number;
 }
 
 export interface Picture {

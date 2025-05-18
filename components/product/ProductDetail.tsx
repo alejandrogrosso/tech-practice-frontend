@@ -365,7 +365,9 @@ export default function ProductDetail() {
                 Cantidad:
                 <div className="relative inline-block">
                   <select className="appearance-none bg-transparent font-bold text-[15px] focus:outline-none focus:ring-0 p-0 m-0 pr-6" defaultValue={1} style={{ minWidth: 70 }}>
-                    {[1,2,3,4,5].map(n => <option key={n} value={n}>{n} unidad{n>1 ? 'es' : ''}</option>)}
+                    {Array.from({ length: Math.min(product.available_quantity, 10) }, (_, i) => i + 1).map(n => (
+                      <option key={n} value={n}>{n} unidad{n > 1 ? 'es' : ''}</option>
+                    ))}
                   </select>
                   <svg className="w-4 h-4 text-gray-400 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
