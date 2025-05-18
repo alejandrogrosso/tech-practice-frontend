@@ -382,7 +382,7 @@ export default function ProductDetail() {
             {/* Vendedor y protección */}
             <div className="flex flex-col gap-2 mt-2">
               <div className="flex items-start gap-2">
-                <img src={product.seller.logo.startsWith('http') ? product.seller.logo.replace('http://localhost:3000', '') : product.seller.logo} alt={product.seller.name} className="w-9 h-6 object-contain rounded border bg-white mt-0.5" />
+                <img src={product.seller.logo} alt={product.seller.name} className="w-9 h-6 object-contain rounded border bg-white mt-0.5" />
                 <div className="flex-1">
                   <div className="flex items-center gap-1 text-sm">
                     <span className="text-gray-700">Tienda oficial</span>
