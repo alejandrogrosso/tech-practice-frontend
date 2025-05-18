@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Heart, Star, Truck, Shield, Store } from "lucide-react"
 import { Product } from "@/types/product"
+import ProductSpecs from "./ProductSpecs"
 
 export default function ProductDetail() {
   const [product, setProduct] = useState<Product | null>(null)
@@ -352,80 +353,13 @@ export default function ProductDetail() {
 
           {/* Línea de separación antes de características del producto */}
           <div className="flex flex-col gap-6 md:gap-8 max-w-[1200px] mx-auto px-2 md:px-6 mt-8 mb-12 border-t border-gray-200">
-            {/* Características del producto - igual al ejemplo */}
+            {/* Características del producto - dinámico */}
             <div className="bg-white rounded-lg p-0">
               <div className="px-3 md:px-5 pt-4 md:pt-5 pb-2">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">Características del producto</h2>
               </div>
               <div className="px-3 md:px-5 py-4 md:py-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 md:gap-x-4 gap-y-2">
-                  {/* Columna 1 */}
-                  <div className="flex flex-col gap-4">
-                    {/* Tamaño de pantalla */}
-                    <div className="flex items-center gap-3">
-                      {/* Icono pantalla */}
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f5f6fa]">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" strokeWidth="1.2"/><rect x="9" y="18" width="6" height="1.2" rx="0.6" fill="#ccc"/></svg>
-                      </span>
-                      <div className="flex-1">
-                        <div className="text-gray-800 text-[15px]">Tamaño de la pantalla: <span className="font-bold text-black">6.6"</span></div>
-                        <div className="text-xs text-gray-500 mb-1">(16.71 cm x 77.4 cm x 8.2 mm)</div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[11px] text-gray-400 min-w-[48px] text-left">PEQUEÑO</span>
-                          <div className="flex-1 flex gap-0.5 h-1 max-w-[220px]">
-                            <div className="flex-1 bg-gray-200 rounded"></div>
-                            <div className="flex-1 bg-gray-200 rounded"></div>
-                            <div className="flex-1 bg-blue-500 rounded"></div>
-                            <div className="flex-1 bg-gray-200 rounded"></div>
-                            <div className="flex-1 bg-gray-200 rounded"></div>
-                          </div>
-                          <span className="text-[11px] text-gray-400 min-w-[48px] text-right">GRANDE</span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Memoria interna */}
-                    <div className="flex items-center gap-2">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f5f6fa] border border-gray-200">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10" y="10" width="4" height="4" rx="1" fill="#ccc"/></svg>
-                      </span>
-                      <span className="text-gray-800 text-[15px]">Memoria interna: <span className="font-bold text-black">256 GB</span></span>
-                    </div>
-                    {/* Cámara trasera principal */}
-                    <div className="flex items-center gap-2">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f5f6fa] border border-gray-200">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="#ccc"/></svg>
-                      </span>
-                      <span className="text-gray-800 text-[15px]">Cámara trasera principal: <span className="font-bold text-black">50 Mpx</span></span>
-                    </div>
-                    {/* Con NFC */}
-                    <div className="flex items-center gap-2">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f5f6fa] border border-gray-200">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M12 8v8" stroke="#ccc" strokeWidth="1.2"/></svg>
-                      </span>
-                      <span className="text-gray-800 text-[15px]">Con NFC: <span className="font-bold text-black">Sí</span></span>
-                    </div>
-                  </div>
-                  {/* Columna 2 */}
-                  <div className="flex flex-col gap-4">
-                    {/* Cámara frontal principal */}
-                    <div className="flex items-center gap-2">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f5f6fa] border border-gray-200">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="#ccc"/></svg>
-                      </span>
-                      <span className="text-gray-800 text-[15px]">Cámara frontal principal: <span className="font-bold text-black">32 Mpx</span></span>
-                    </div>
-                    {/* Desbloqueo */}
-                    <div className="flex items-center gap-2">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f5f6fa] border border-gray-200">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M12 8v8" stroke="#ccc" strokeWidth="1.2"/></svg>
-                      </span>
-                      <span className="text-gray-800 text-[15px]">Desbloqueo: <span className="font-bold text-black">Huella dactilar y reconocimiento facial</span></span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <a href="#" className="text-[#3483fa] text-xs hover:underline flex items-center gap-1">Ver todas las características <svg className="w-3 h-3" fill="none" stroke="#3483fa" strokeWidth="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
-                </div>
+                <ProductSpecs specs={product.specs} />
               </div>
             </div>
 
