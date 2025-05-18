@@ -18,7 +18,6 @@ describe('ProductSpecs', () => {
     expect(screen.getByText(/256 GB/i)).toBeInTheDocument();
     expect(screen.getByText(/50 Mpx/i)).toBeInTheDocument();
     expect(screen.getByText(/Huella dactilar/i)).toBeInTheDocument();
-    // Verifica que existan los íconos SVG
     expect(document.querySelectorAll('svg').length).toBeGreaterThan(0);
   });
 }); 

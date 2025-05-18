@@ -1,11 +1,7 @@
-/**
- * Configuración base para las peticiones al backend
- */
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-/**
- * Opciones por defecto para las peticiones fetch
- */
+
 const defaultOptions: RequestInit = {
   credentials: 'include',
   headers: {

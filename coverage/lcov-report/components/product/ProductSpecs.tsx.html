@@ -295,7 +295,7 @@ export default function ProductSpecs({ specs }: ProductSpecsProps) {
 &nbsp;
   return (
     &lt;div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4"&gt;
-      {/* Columna izquierda */}
+      
       &lt;div className="flex flex-col gap-6"&gt;
         {left.map((key) =&gt; (
           key === "Tamaño de la pantalla" &amp;&amp; specs[key] ? (
@@ -304,7 +304,7 @@ export default function ProductSpecs({ specs }: ProductSpecsProps) {
               &lt;div className="flex-1"&gt;
                 &lt;div className="text-gray-800 text-[15px]"&gt;Tamaño de la pantalla: &lt;span className="font-bold text-black"&gt;{specs[key]}&lt;/span&gt;&lt;/div&gt;
                 &lt;div className="text-xs text-gray-500 mb-1"&gt;(16.71 cm x 77.4 cm x 8.2 mm)&lt;/div&gt;
-                {/* Barra visual */}
+                
                 &lt;div className="flex items-center gap-2"&gt;
                   &lt;span className="text-[11px] text-gray-400 min-w-[48px] text-left"&gt;PEQUEÑO&lt;/span&gt;
                   &lt;div className="flex-1 flex gap-0.5 h-1 max-w-[220px]"&gt;
@@ -328,7 +328,7 @@ export default function ProductSpecs({ specs }: ProductSpecsProps) {
           )
         ))}
       &lt;/div&gt;
-      {/* Columna derecha */}
+      
       &lt;div className="flex flex-col gap-6"&gt;
         {right.map((key) =&gt; (
           specs[key] &amp;&amp; (

@@ -1385,9 +1385,9 @@ export default function ProductDetail() {
 &nbsp;
   return (
     &lt;&gt;
-      {/* Franja superior gris para sugerencias y navegación */}
+      
       &lt;div className="w-full bg-[#f7f7f7] border-b border-gray-200 px-6 py-2"&gt;
-        {/* Línea 1: Sugerencias */}
+        
         &lt;div className="text-xs text-gray-700 mb-1"&gt;
           &lt;span className="font-normal text-gray-600 mr-1"&gt;También puede interesarte:&lt;/span&gt;
           {suggestions.map((s, i) =&gt; (
@@ -1397,7 +1397,7 @@ export default function ProductDetail() {
             &lt;/span&gt;
           ))}
         &lt;/div&gt;
-        {/* Línea 2: Volver al listado y breadcrumbs */}
+        
         &lt;div className="flex items-center text-xs text-[#3483fa]"&gt;
           &lt;a href="#" className="hover:underline"&gt;Volver al listado&lt;/a&gt;
           &lt;span className="mx-2 text-gray-400"&gt;|&lt;/span&gt;
@@ -1411,14 +1411,14 @@ export default function ProductDetail() {
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div className="flex flex-col md:flex-row w-full min-h-screen bg-white"&gt;
-        {/* Columna principal */}
+        
         &lt;main className="flex-1 flex flex-col pt-4 pb-6 md:pb-0"&gt;
-          {/* Galería + detalles (puede ser grid de 2 columnas) */}
+          
           &lt;div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start px-2 md:px-6"&gt;
-            {/* Columna 1: Galería */}
+            
             &lt;div className="pt-2"&gt;
               &lt;div className="grid grid-cols-[40px_1fr] md:grid-cols-[56px_1fr] h-[260px] md:h-[440px]"&gt;
-                {/* Thumbnails */}
+                
                 &lt;div className="flex flex-col gap-1 items-center py-0 overflow-y-auto"&gt;
                   {product.pictures.map((img) =&gt; (
                     &lt;button
@@ -1435,7 +1435,7 @@ export default function ProductDetail() {
                     &lt;/button&gt;
                   ))}
                 &lt;/div&gt;
-                {/* Imagen principal */}
+                
                 &lt;div className="flex items-center justify-center bg-white h-[180px] md:h-[440px] pt-0"&gt;
                   &lt;img
                     src={selectedImage.url.startsWith('http') ? selectedImage.url.replace('http://localhost:3000', '') : <span class="branch-1 cbranch-no" title="branch not covered" >selectedImage.url}</span>
@@ -1446,17 +1446,17 @@ export default function ProductDetail() {
                 &lt;/div&gt;
               &lt;/div&gt;
             &lt;/div&gt;
-            {/* Columna 2: Detalles principales */}
+            
             &lt;div className="pt-2 flex flex-col gap-0"&gt;
-              {/* Cabecera con más espacio entre líneas */}
+              
               &lt;div className="flex flex-col gap-2 mb-4"&gt;
-                {/* Línea 1: Logo + link + tilde */}
+                
                 &lt;div className="flex items-center gap-2"&gt;
                   &lt;img src={product.seller.logo || <span class="branch-1 cbranch-no" title="branch not covered" >'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg'}</span> alt={product.seller.name} className="w-6 h-6 object-contain rounded border bg-white" /&gt;
                   &lt;a href="#" className="text-[#3483fa] font-bold text-base hover:underline align-middle"&gt;Visita la Tienda oficial de Samsung&lt;/a&gt;
                   &lt;img src="https://http2.mlstatic.com/frontend-assets/vpp-frontend/cockade.svg" alt="Tienda oficial" className="w-5 h-5 align-middle" /&gt;
                 &lt;/div&gt;
-                {/* Línea 2: Nuevo | vendidos | corazón */}
+                
                 &lt;div className="flex items-center"&gt;
                   &lt;span className="text-base text-gray-700"&gt;Nuevo&lt;/span&gt;
                   &lt;span className="text-gray-300 mx-2"&gt;|&lt;/span&gt;
@@ -1465,15 +1465,15 @@ export default function ProductDetail() {
                     &lt;svg className="w-5 h-5 text-[#3483fa]" fill="none" stroke="#3483fa" strokeWidth="2" viewBox="0 0 24 24"&gt;&lt;path strokeLinecap="round" strokeLinejoin="round" d="M12 21s-6.5-5.5-9-9.5A5.5 5.5 0 0 1 12 5.5a5.5 5.5 0 0 1 9 6c-2.5 4-9 9.5-9 9.5z"/&gt;&lt;/svg&gt;
                   &lt;/button&gt;
                 &lt;/div&gt;
-                {/* Línea 3: Badge y ranking */}
+                
                 &lt;div className="flex items-center gap-2"&gt;
                   &lt;span className="bg-[#ff7733] text-white text-[11px] font-bold px-2 py-[2px] rounded-[3px]"&gt;MÁS VENDIDO&lt;/span&gt;
                   &lt;span className="text-[#3483fa] text-xs font-normal"&gt;3° en Celulares y Smartphones&lt;/span&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
-              {/* Título */}
+              
               &lt;h1 className="text-lg md:text-[1.45rem] font-bold text-gray-900 mb-2 leading-tight"&gt;{product.title}&lt;/h1&gt;
-              {/* Estrellas y reviews */}
+              
               &lt;div className="flex items-center gap-1 mb-1.5 flex-wrap"&gt;
                 &lt;span className="text-[#3483fa] font-semibold text-base"&gt;4.8&lt;/span&gt;
                 {[...Array(5)].map((_, i) =&gt; (
@@ -1481,28 +1481,28 @@ export default function ProductDetail() {
                 ))}
                 &lt;span className="text-xs text-gray-500"&gt;(759)&lt;/span&gt;
               &lt;/div&gt;
-              {/* Precio anterior tachado arriba */}
+              
               {product.original_price &amp;&amp; (
                 &lt;div className="text-base text-gray-400 line-through mb-0.5"&gt;US$ {product.original_price}&lt;/div&gt;
               )}
-              {/* Precio actual, descuento y signo de pregunta */}
+              
               &lt;div className="flex items-baseline gap-2 mb-1"&gt;
                 &lt;span className="text-3xl font-bold text-gray-900"&gt;US$ {product.price}&lt;/span&gt;
                 {product.original_price &amp;&amp; (
                   &lt;span className="flex items-center text-base text-[#00a650] font-semibold ml-2"&gt;
                     {Math.round((1 - product.price / product.original_price) * 100)}% OFF
-                    {/* Signo de pregunta azul claro */}
+                    
                     &lt;svg className="w-4 h-4 ml-1 align-middle" fill="#3483fa" viewBox="0 0 16 16"&gt;&lt;circle cx="8" cy="8" r="8" fill="#e3edfb"/&gt;&lt;text x="8" y="12" textAnchor="middle" fontSize="10" fill="#3483fa"&gt;?&lt;/text&gt;&lt;/svg&gt;
                   &lt;/span&gt;
                 )}
               &lt;/div&gt;
               &lt;div className="text-[#00a650] font-semibold text-base mb-1"&gt;en 10 cuotas de $1.914&lt;sup className='text-xs align-super'&gt;00&lt;/sup&gt; sin interés&lt;/div&gt;
-              {/* Bloque de promo */}
+              
               &lt;div className="inline-block bg-[#e3edfb] text-[#3483fa] text-xs font-semibold px-2 py-1 rounded mt-1 mb-1"&gt;10% OFF OCA Blue Visa&lt;/div&gt;
               &lt;div&gt;
                 &lt;a href="#" className="text-[#3483fa] text-xs hover:underline"&gt;Ver medios de pago y promociones&lt;/a&gt;
               &lt;/div&gt;
-              {/* Color */}
+              
               &lt;div className="mb-2"&gt;
                 &lt;span className="font-semibold"&gt;Color: &lt;/span&gt;
                 &lt;span className="text-gray-700"&gt;Azul oscuro&lt;/span&gt;
@@ -1514,7 +1514,7 @@ export default function ProductDetail() {
                   /&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
-              {/* Highlights */}
+              
               &lt;div className="mb-2"&gt;
                 &lt;h2 className="font-semibold mb-2 text-base"&gt;Lo que tenés que saber de este producto&lt;/h2&gt;
                 &lt;ul className="list-disc pl-4 md:pl-5 text-[15px] text-gray-800 space-y-1"&gt;
@@ -1528,12 +1528,12 @@ export default function ProductDetail() {
                 &lt;/ul&gt;
                 &lt;a href="#" className="text-blue-600 text-sm mt-2 inline-block hover:underline"&gt;Ver características&lt;/a&gt;
               &lt;/div&gt;
-              {/* Opciones de compra */}
+              
               &lt;div className="text-xs text-gray-500"&gt;Opciones de compra: &lt;a href="#" className="text-blue-600 hover:underline"&gt;3 productos nuevos desde $699.000&lt;/a&gt;&lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
 &nbsp;
-          {/* Línea de separación antes de productos relacionados */}
+          
           &lt;div className="px-2 md:px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-8"&gt;
             &lt;div className="pt-2 pb-2"&gt;
               &lt;div className="mb-2"&gt;
@@ -1601,7 +1601,7 @@ export default function ProductDetail() {
                     &lt;/div&gt;
                   ))}
                 &lt;/div&gt;
-                {/* Flecha visual a la derecha */}
+                
                 &lt;button
                   className="hidden md:flex items-center justify-center absolute right-[-24px] top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full w-10 h-10 shadow-md"
                   aria-label="Siguiente"
@@ -1614,12 +1614,12 @@ export default function ProductDetail() {
             &lt;/div&gt;
           &lt;/div&gt;
 &nbsp;
-          {/* Línea de separación antes de productos de Samsung */}
+          
           &lt;div className="px-2 md:px-6 w-full max-w-[1200px] mx-auto border-t border-gray-200 mt-12"&gt;
             &lt;div className="pt-2 pb-2"&gt;
               &lt;h2 className="text-2xl font-bold text-gray-900 mb-4"&gt;Productos de Samsung&lt;/h2&gt;
               &lt;div className="relative"&gt;
-                {/* Grid responsive: 1 columna en mobile, 2 en desktop */}
+                
                 {loadingSamsung ? (
 <span class="branch-0 cbranch-no" title="branch not covered" >                  &lt;div className="text-center text-gray-500 py-8"&gt;Cargando productos de Samsung...&lt;/div&gt;</span>
                 ) : errorSamsung ? (
@@ -1648,7 +1648,7 @@ export default function ProductDetail() {
                             &lt;div className="text-base text-green-600 font-semibold leading-tight"&gt;{prod.envio}&lt;/div&gt;
                           &lt;/div&gt;
                         &lt;/a&gt;
-                        {/* Flecha visual solo en la última card en desktop, no tapa la card */}
+                        
                         {i === arr.length - 1 &amp;&amp; (
                           &lt;button
                             className="hidden md:flex items-center justify-center absolute right-[-32px] top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full w-10 h-10 shadow-md"
@@ -1668,9 +1668,9 @@ export default function ProductDetail() {
             &lt;/div&gt;
           &lt;/div&gt;
 &nbsp;
-          {/* Línea de separación antes de características del producto */}
+          
           &lt;div className="flex flex-col gap-6 md:gap-8 max-w-[1200px] mx-auto px-2 md:px-6 mt-8 mb-12 border-t border-gray-200"&gt;
-            {/* Características del producto - dinámico */}
+            
             &lt;div className="bg-white rounded-lg p-0"&gt;
               &lt;div className="px-3 md:px-5 pt-4 md:pt-5 pb-2"&gt;
                 &lt;h2 className="text-lg font-bold text-gray-900 mb-1"&gt;Características del producto&lt;/h2&gt;
@@ -1680,9 +1680,9 @@ export default function ProductDetail() {
               &lt;/div&gt;
             &lt;/div&gt;
 &nbsp;
-            {/* Línea de separación antes de descripción */}
+            
             &lt;div className="border-t border-gray-200" /&gt;
-            {/* Descripción */}
+            
             &lt;div className="bg-white rounded-lg px-3 md:px-6 py-4 md:py-5"&gt;
               &lt;h2 className="text-black font-bold text-lg mb-4"&gt;Descripción&lt;/h2&gt;
               {Array.isArray(product.description) ? (
@@ -1702,18 +1702,18 @@ export default function ProductDetail() {
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/main&gt;
-        {/* Sidebar sticky */}
+        
         &lt;aside className="w-full md:w-[320px] flex flex-col gap-4 md:gap-6 pt-4"&gt;
-          {/* Bloque: Envío, stock, botones, vendedor y protección */}
+          
           &lt;div className="bg-white border border-gray-200 rounded-lg p-4 md:p-5 flex flex-col gap-3 md:gap-4 shadow-sm"&gt;
-            {/* Envío gratis */}
+            
             &lt;div&gt;
               &lt;span className="text-[#00a650] font-bold"&gt;Envío gratis&lt;/span&gt;
               &lt;span className="text-gray-800 font-bold"&gt; a todo el país&lt;/span&gt;
               &lt;div className="text-xs text-gray-500 leading-tight"&gt;Conocé los tiempos y las formas de envío.&lt;/div&gt;
               &lt;a href="#" className="text-[#3483fa] text-xs leading-tight hover:underline"&gt;Calcular cuándo llega&lt;/a&gt;
             &lt;/div&gt;
-            {/* Stock disponible */}
+            
             &lt;div className="mt-1"&gt;
               &lt;div className="text-[15px] font-bold text-gray-800 mb-1"&gt;Stock disponible&lt;/div&gt;
               &lt;div className="text-[15px] text-gray-800 flex items-center gap-1"&gt;
@@ -1727,12 +1727,12 @@ export default function ProductDetail() {
                 &lt;span className="text-gray-400 text-xs align-middle"&gt;(+50 disponibles)&lt;/span&gt;
               &lt;/div&gt;
             &lt;/div&gt;
-            {/* Botones de compra */}
+            
             &lt;div className="flex flex-col gap-2 mt-2"&gt;
               &lt;button className="w-full bg-[#3483fa] hover:bg-[#2968c8] text-white font-semibold py-3 rounded text-base transition-colors"&gt;Comprar ahora&lt;/button&gt;
               &lt;button className="w-full bg-[#f5f6fa] text-[#3483fa] font-semibold py-3 rounded text-base border border-[#3483fa] transition-colors hover:bg-[#e3edfb]"&gt;Agregar al carrito&lt;/button&gt;
             &lt;/div&gt;
-            {/* Vendedor y protección */}
+            
             &lt;div className="flex flex-col gap-2 mt-2"&gt;
               &lt;div className="flex items-start gap-2"&gt;
                 &lt;img src={product.seller.logo.startsWith('http') ? product.seller.logo.replace('http://localhost:3000', '') : <span class="branch-1 cbranch-no" title="branch not covered" >product.seller.logo}</span> alt={product.seller.name} className="w-9 h-6 object-contain rounded border bg-white mt-0.5" /&gt;
@@ -1747,30 +1747,30 @@ export default function ProductDetail() {
                 &lt;/div&gt;
               &lt;/div&gt;
               &lt;div className="flex items-start gap-2 text-sm mt-1"&gt;
-                {/* Flecha curva SVG gris */}
+                
                 &lt;svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="#999" strokeWidth="2" viewBox="0 0 24 24"&gt;&lt;path d="M9 17c-4-2-4-8 0-10s8 2 8 6"/&gt;&lt;polyline points="9 17 9 21 5 21"/&gt;&lt;/svg&gt;
                 &lt;span&gt;&lt;a href="#" className="text-[#3483fa] font-bold hover:underline"&gt;Devolución gratis.&lt;/a&gt; &lt;span className="text-gray-500 font-normal"&gt;Tenés 30 días desde que lo recibís.&lt;/span&gt;&lt;/span&gt;
               &lt;/div&gt;
               &lt;div className="flex items-start gap-2 text-sm"&gt;
-                {/* Escudo SVG gris */}
+                
                 &lt;svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="#999" strokeWidth="2" viewBox="0 0 24 24"&gt;&lt;path d="M12 3l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V7l7-4z"/&gt;&lt;/svg&gt;
                 &lt;span&gt;&lt;a href="#" className="text-[#3483fa] font-bold hover:underline"&gt;Compra Protegida,&lt;/a&gt; &lt;span className="text-gray-500 font-normal"&gt;recibí el producto que esperabas o te devolvemos tu dinero.&lt;/span&gt;&lt;/span&gt;
               &lt;/div&gt;
               &lt;div className="flex items-start gap-2 text-sm text-gray-500"&gt;
-                {/* Cockade SVG gris */}
+                
                 &lt;svg className="w-5 h-5 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;circle cx="12" cy="8" r="6" stroke="#999" strokeWidth="2" fill="white"/&gt;&lt;path d="M4 20l2-4 2 4 2-4 2 4 2-4 2 4 2-4 2 4" stroke="#999" strokeWidth="2" fill="white"/&gt;&lt;/svg&gt;
                 &lt;span&gt;12 meses de garantía de fábrica.&lt;/span&gt;
               &lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
-          {/* Bloque: Tienda Oficial (reputación) */}
+          
           &lt;div className="bg-white border border-gray-200 rounded-lg p-0 flex flex-col shadow-sm overflow-hidden"&gt;
-            {/* Banner negro y logo */}
+            
             &lt;div className="relative h-16 bg-gradient-to-r from-[#222] to-[#444] flex items-center justify-start px-4"&gt;
               &lt;img src="/images/brands/samsung-logo.png" alt="Samsung" className="absolute -bottom-4 left-4 w-12 h-12 object-contain bg-white rounded shadow border p-1" /&gt;
               &lt;span className="text-white text-lg font-semibold ml-16"&gt;Tienda Oficial&lt;/span&gt;
             &lt;/div&gt;
-            {/* Info tienda */}
+            
             &lt;div className="px-4 pt-6 pb-4 flex flex-col gap-1"&gt;
               &lt;span className="text-lg font-bold text-gray-900 leading-tight"&gt;Samsung&lt;/span&gt;
               &lt;div className="flex items-center gap-1 text-sm text-gray-600"&gt;
@@ -1779,7 +1779,7 @@ export default function ProductDetail() {
               &lt;/div&gt;
               &lt;span className="text-sm text-gray-500 font-semibold mt-1"&gt;+50 Productos&lt;/span&gt;
             &lt;/div&gt;
-            {/* Barra de reputación */}
+            
             &lt;div className="flex gap-1 px-4 mt-2 mb-1"&gt;
               &lt;div className="h-1 rounded w-1/5 bg-[#ffe0e0]"&gt;&lt;/div&gt;
               &lt;div className="h-1 rounded w-1/5 bg-[#fff4e0]"&gt;&lt;/div&gt;
@@ -1787,7 +1787,7 @@ export default function ProductDetail() {
               &lt;div className="h-1 rounded w-1/5 bg-[#f0ffe0]"&gt;&lt;/div&gt;
               &lt;div className="h-1 rounded w-1/5 bg-[#39b54a]"&gt;&lt;/div&gt;
             &lt;/div&gt;
-            {/* Métricas */}
+            
             &lt;div className="flex justify-between px-4 py-2 text-xs text-gray-700"&gt;
               &lt;div className="flex flex-col items-center"&gt;
                 &lt;span className="font-bold"&gt;+5mil&lt;/span&gt;
@@ -1802,57 +1802,57 @@ export default function ProductDetail() {
                 &lt;span className="text-[11px] text-gray-500"&gt;Entrega sus productos a tiempo&lt;/span&gt;
               &lt;/div&gt;
             &lt;/div&gt;
-            {/* Botón */}
+            
             &lt;div className="px-4 pb-4"&gt;
               &lt;button className="w-full bg-[#f0f6ff] text-[#3483fa] font-semibold py-3 rounded text-base border border-[#d6eaff] hover:bg-[#e3edfb] transition-colors"&gt;Ir a la Tienda oficial&lt;/button&gt;
             &lt;/div&gt;
           &lt;/div&gt;
-          {/* Bloque otras opciones de compra */}
+          
           &lt;div className="bg-white border border-gray-200 rounded-lg overflow-hidden"&gt;
             &lt;div className="px-4 pt-4 pb-2 font-bold text-gray-800 text-base"&gt;Otras opciones de compra&lt;/div&gt;
             &lt;div className="border-t border-gray-200"&gt;&lt;/div&gt;
             &lt;a href="#" className="block px-4 py-3 text-[#3483fa] font-bold text-base hover:underline"&gt;Ver 3 opciones desde US$ 439&lt;/a&gt;
           &lt;/div&gt;
-          {/* Bloque medios de pago */}
+          
           &lt;div className="bg-white border border-gray-200 rounded-lg overflow-hidden"&gt;
             &lt;div className="px-4 pt-4 pb-2 font-bold text-gray-800 text-base"&gt;Medios de pago&lt;/div&gt;
-            {/* Banner verde */}
+            
             &lt;div className="flex items-center gap-2 bg-[#39b54a] text-white rounded mx-4 my-2 px-4 py-3"&gt;
               &lt;svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"&gt;&lt;rect x="2" y="7" width="20" height="10" rx="2" fill="#39b54a" stroke="white"/&gt;&lt;rect x="6" y="11" width="4" height="2" rx="1" fill="white"/&gt;&lt;/svg&gt;
               &lt;span className="font-semibold"&gt;¡Paga en hasta 12 cuotas sin interés!&lt;/span&gt;
             &lt;/div&gt;
-            {/* Tarjetas de crédito */}
+            
             &lt;div className="px-4 pt-2 pb-6"&gt;
               &lt;div className="font-bold text-gray-800 text-base"&gt;Tarjetas de crédito&lt;/div&gt;
               &lt;div className="text-sm text-gray-500 mb-2"&gt;¡Cuotas sin interés con bancos seleccionados!&lt;/div&gt;
               &lt;div className="flex items-center gap-4 mb-3"&gt;
-                {/* Mastercard */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;circle cx="18" cy="8" r="8" fill="#EB001B"/&gt;&lt;circle cx="30" cy="8" r="8" fill="#F79E1B"/&gt;&lt;path d="M24 8a8 8 0 0 1 8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 1-8-8z" fill="#FF5F00"/&gt;&lt;/svg&gt; &lt;/span&gt;
-                {/* Visa */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;g&gt;&lt;path fill="#1A1F71" d="M6.7 15.1L0.3 0.9h4.1c0.4 0 0.7 0.2 0.8 0.6l2.1 6.1 2-6.1c0.1-0.4 0.4-0.6 0.8-0.6h3.7l-6.1 14.2z"/&gt;&lt;path fill="#1A1F71" d="M17.2 0.9c-0.4 0-0.7 0.2-0.8 0.6l-4.7 13.6h3.6l0.7-2.1h4.4l0.7 2.1h3.6l-4.7-13.6c-0.1-0.4-0.4-0.6-0.8-0.6zm-0.1 3.7l1.6 4.7h-3.2l1.6-4.7z"/&gt;&lt;path fill="#1A1F71" d="M25.2 0.9c-0.4 0-0.7 0.2-0.8 0.6l-4.7 13.6h3.6l0.7-2.1h4.4l0.7 2.1h3.6l-4.7-13.6c-0.1-0.4-0.4-0.6-0.8-0.6zm-0.1 3.7l1.6 4.7h-3.2l1.6-4.7z"/&gt;&lt;/g&gt;&lt;/svg&gt; &lt;/span&gt;
-                {/* Amex */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="48" height="16" rx="2" fill="#2E77BC"/&gt;&lt;text x="24" y="11" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" fontSize="7" fill="#fff"&gt;AMEX&lt;/text&gt;&lt;/svg&gt; &lt;/span&gt;
-                {/* OCA */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="48" height="16" rx="2" fill="#2B3990"/&gt;&lt;text x="24" y="11" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" fontSize="8" fill="#fff"&gt;OCA&lt;/text&gt;&lt;/svg&gt; &lt;/span&gt;
               &lt;/div&gt;
               &lt;div className="font-bold text-gray-800 text-base mt-2"&gt;Tarjetas de débito&lt;/div&gt;
               &lt;div className="flex items-center gap-4 mb-3 mt-2"&gt;
-                {/* Visa Débito */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;g&gt;&lt;path fill="#1A1F71" d="M6.7 15.1L0.3 0.9h4.1c0.4 0 0.7 0.2 0.8 0.6l2.1 6.1 2-6.1c0.1-0.4 0.4-0.6 0.8-0.6h3.7l-6.1 14.2z"/&gt;&lt;path fill="#1A1F71" d="M17.2 0.9c-0.4 0-0.7 0.2-0.8 0.6l-4.7 13.6h3.6l0.7-2.1h4.4l0.7 2.1h3.6l-4.7-13.6c-0.1-0.4-0.4-0.6-0.8-0.6zm-0.1 3.7l1.6 4.7h-3.2l1.6-4.7z"/&gt;&lt;path fill="#1A1F71" d="M25.2 0.9c-0.4 0-0.7 0.2-0.8 0.6l-4.7 13.6h3.6l0.7-2.1h4.4l0.7 2.1h3.6l-4.7-13.6c-0.1-0.4-0.4-0.6-0.8-0.6zm-0.1 3.7l1.6 4.7h-3.2l1.6-4.7z"/&gt;&lt;path fill="#1A1F71" d="M36.2 0.9c-0.4 0-0.7 0.2-0.8 0.6l-4.7 13.6h3.6l0.7-2.1h4.4l0.7 2.1h3.6l-4.7-13.6c-0.1-0.4-0.4-0.6-0.8-0.6zm-0.1 3.7l1.6 4.7h-3.2l1.6-4.7z"/&gt;&lt;/g&gt;&lt;/svg&gt; &lt;/span&gt;
-                {/* Mastercard Débito */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;circle cx="18" cy="8" r="8" fill="#EB001B"/&gt;&lt;circle cx="30" cy="8" r="8" fill="#F79E1B"/&gt;&lt;path d="M24 8a8 8 0 0 1 8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 1-8-8z" fill="#FF5F00"/&gt;&lt;/svg&gt; &lt;/span&gt;
               &lt;/div&gt;
               &lt;div className="font-bold text-gray-800 text-base mt-2"&gt;Efectivo&lt;/div&gt;
               &lt;div className="flex items-center gap-4 mb-3 mt-2"&gt;
-                {/* Abitab */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="48" height="16" rx="2" fill="#002B6C"/&gt;&lt;text x="24" y="11" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" fontSize="8" fill="#fff"&gt;Abitab&lt;/text&gt;&lt;/svg&gt; &lt;/span&gt;
-                {/* Redpagos */}
+                
                 &lt;span className="inline-block w-12 h-4 align-middle"&gt; &lt;svg viewBox="0 0 48 16" width="48" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="48" height="16" rx="2" fill="#F7D600"/&gt;&lt;text x="24" y="11" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" fontSize="8" fill="#0033A0"&gt;Redpagos&lt;/text&gt;&lt;/svg&gt; &lt;/span&gt;
               &lt;/div&gt;
               &lt;a href="#" className="block text-[#3483fa] text-sm font-semibold mt-2 hover:underline"&gt;Conocé otros medios de pago&lt;/a&gt;
             &lt;/div&gt;
           &lt;/div&gt;
-          {/* Bloque productos relacionados (sidebar) */}
+          
           &lt;div className="bg-white border border-gray-200 rounded-lg overflow-hidden"&gt;
             &lt;div className="px-4 pt-4 pb-1 font-bold text-gray-800 text-base"&gt;Productos relacionados&lt;/div&gt;
             &lt;div className="px-4 text-xs text-gray-400 mb-2"&gt;Promocionado&lt;/div&gt;

@@ -7,7 +7,7 @@ interface ProductSpecsProps {
   }
 }
 
-// Mapeo de íconos SVG para cada característica
+
 const icons: { [key: string]: React.ReactNode } = {
   "Tamaño de la pantalla": <DevicePhoneMobileIcon className="w-5 h-5 text-gray-400" />,
   "Memoria interna": <CpuChipIcon className="w-5 h-5 text-gray-400" />,
@@ -27,13 +27,13 @@ const order = [
 ]
 
 export default function ProductSpecs({ specs }: ProductSpecsProps) {
-  // Separar en dos columnas
+
   const left = order.slice(0, 4)
   const right = order.slice(4)
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-      {/* Columna izquierda */}
+      
       <div className="flex flex-col gap-6">
         {left.map((key) => (
           key === "Tamaño de la pantalla" && specs[key] ? (
@@ -42,7 +42,7 @@ export default function ProductSpecs({ specs }: ProductSpecsProps) {
               <div className="flex-1">
                 <div className="text-gray-800 text-[15px]">Tamaño de la pantalla: <span className="font-bold text-black">{specs[key]}</span></div>
                 <div className="text-xs text-gray-500 mb-1">(16.71 cm x 77.4 cm x 8.2 mm)</div>
-                {/* Barra visual */}
+                
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] text-gray-400 min-w-[48px] text-left">PEQUEÑO</span>
                   <div className="flex-1 flex gap-0.5 h-1 max-w-[220px]">
@@ -66,7 +66,7 @@ export default function ProductSpecs({ specs }: ProductSpecsProps) {
           )
         ))}
       </div>
-      {/* Columna derecha */}
+      
       <div className="flex flex-col gap-6">
         {right.map((key) => (
           specs[key] && (

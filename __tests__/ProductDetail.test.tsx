@@ -2,10 +2,10 @@ import '@testing-library/jest-dom';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import ProductDetail from '@/components/product/ProductDetail';
 
-// Mock API_BASE
+
 const API_BASE = 'http://localhost:3001/api';
 
-// Mock fetch responses
+
 global.fetch = jest.fn((url) => {
   const urlStr = typeof url === 'string' ? url : url.toString();
   if (urlStr.includes('/products/brand/Samsung/showcase')) {
