@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Heart, Star, Truck, Shield, Store } from "lucide-react"
 import { Product } from "@/types/product"
 import ProductSpecs from "./ProductSpecs"
+import { ArrowPathRoundedSquareIcon, ShieldCheckIcon, BookmarkSquareIcon, ChatBubbleLeftRightIcon, ClockIcon } from "@heroicons/react/24/outline"
 
 export default function ProductDetail() {
   const [product, setProduct] = useState<Product | null>(null)
@@ -425,26 +426,30 @@ export default function ProductDetail() {
                   <div className="flex items-center gap-1 text-sm">
                     <span className="text-gray-700">Tienda oficial</span>
                     <a href="#" className="text-[#3483fa] ml-1 hover:underline">Samsung</a>
-                    <svg className="ml-1 w-4 h-4 align-middle" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8" fill="#3483FA"/><path d="M12 6L7.25 10.75L5 8.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </div>
                   <div className="text-sm font-bold text-gray-900 leading-tight">+10mil ventas</div>
                   <div className="text-xs text-gray-400 leading-tight">Hace Factura A</div>
                 </div>
               </div>
-              <div className="flex items-start gap-2 text-sm mt-1">
-                {/* Flecha curva SVG gris */}
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="#999" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 17c-4-2-4-8 0-10s8 2 8 6"/><polyline points="9 17 9 21 5 21"/></svg>
-                <span><a href="#" className="text-[#3483fa] font-bold hover:underline">Devolución gratis.</a> <span className="text-gray-500 font-normal">Tenés 30 días desde que lo recibís.</span></span>
-              </div>
-              <div className="flex items-start gap-2 text-sm">
-                {/* Escudo SVG gris */}
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="#999" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V7l7-4z"/></svg>
-                <span><a href="#" className="text-[#3483fa] font-bold hover:underline">Compra Protegida,</a> <span className="text-gray-500 font-normal">recibí el producto que esperabas o te devolvemos tu dinero.</span></span>
-              </div>
-              <div className="flex items-start gap-2 text-sm text-gray-500">
-                {/* Cockade SVG gris */}
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="6" stroke="#999" strokeWidth="2" fill="white"/><path d="M4 20l2-4 2 4 2-4 2 4 2-4 2 4 2-4 2 4" stroke="#999" strokeWidth="2" fill="white"/></svg>
-                <span>12 meses de garantía de fábrica.</span>
+              <div className="flex flex-col gap-2 mt-2 min-w-0 w-full">
+                <div className="flex items-center gap-2 text-sm mt-1">
+                  <ArrowPathRoundedSquareIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  <span>
+                    <a href="#" className="text-[#3483fa] font-bold hover:underline">Devolución gratis.</a>
+                    <span className="text-gray-500 font-normal"> Tenés 30 días desde que lo recibís.</span>
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <ShieldCheckIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  <span>
+                    <a href="#" className="text-[#3483fa] font-bold hover:underline">Compra Protegida,</a>
+                    <span className="text-gray-500 font-normal"> recibí el producto que esperabas o te devolvemos tu dinero.</span>
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <BookmarkSquareIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  <span>12 meses de garantía de fábrica.</span>
+                </div>
               </div>
             </div>
           </div>
@@ -479,11 +484,11 @@ export default function ProductDetail() {
                 <span className="text-[11px] text-gray-500">Ventas concretadas</span>
               </div>
               <div className="flex flex-col items-center">
-                <svg className="w-4 h-4 mb-1 text-[#39b54a]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 20l9-5-9-5-9 5 9 5z"/><polyline points="12 12 12 20"/></svg>
+                <ChatBubbleLeftRightIcon className="w-5 h-5 mb-1 text-[#39b54a]" />
                 <span className="text-[11px] text-gray-500">Brinda buena atención</span>
               </div>
               <div className="flex flex-col items-center">
-                <svg className="w-4 h-4 mb-1 text-[#39b54a]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                <ClockIcon className="w-5 h-5 mb-1 text-[#39b54a]" />
                 <span className="text-[11px] text-gray-500">Entrega sus productos a tiempo</span>
               </div>
             </div>

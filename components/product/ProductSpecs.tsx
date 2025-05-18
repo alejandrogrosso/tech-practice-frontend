@@ -1,4 +1,5 @@
 import React from "react"
+import { DevicePhoneMobileIcon, CpuChipIcon, CameraIcon, WifiIcon, FingerPrintIcon } from "@heroicons/react/24/outline";
 
 interface ProductSpecsProps {
   specs: {
@@ -8,24 +9,12 @@ interface ProductSpecsProps {
 
 // Mapeo de íconos SVG para cada característica
 const icons: { [key: string]: React.ReactNode } = {
-  "Tamaño de la pantalla": (
-    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" strokeWidth="1.2"/><rect x="9" y="18" width="6" height="1.2" rx="0.6" fill="#ccc"/></svg>
-  ),
-  "Memoria interna": (
-    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10" y="10" width="4" height="4" rx="1" fill="#ccc"/></svg>
-  ),
-  "Cámara trasera principal": (
-    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="#ccc"/></svg>
-  ),
-  "Cámara frontal principal": (
-    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="#ccc"/></svg>
-  ),
-  "Con NFC": (
-    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M12 8v8" stroke="#ccc" strokeWidth="1.2"/></svg>
-  ),
-  "Desbloqueo": (
-    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3" stroke="#ccc" strokeWidth="1.2"/></svg>
-  ),
+  "Tamaño de la pantalla": <DevicePhoneMobileIcon className="w-5 h-5 text-gray-400" />,
+  "Memoria interna": <CpuChipIcon className="w-5 h-5 text-gray-400" />,
+  "Cámara trasera principal": <CameraIcon className="w-5 h-5 text-gray-400" />,
+  "Cámara frontal principal": <CameraIcon className="w-5 h-5 text-gray-400" />,
+  "Con NFC": <WifiIcon className="w-5 h-5 text-gray-400" />,
+  "Desbloqueo": <FingerPrintIcon className="w-5 h-5 text-gray-400" />,
 }
 
 const order = [
