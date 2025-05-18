@@ -100,9 +100,9 @@ export default function ProductDetail() {
         {/* Columna principal */}
         <main className="flex-1 flex flex-col pt-4 pb-6 md:pb-0">
           {/* Galería + detalles (puede ser grid de 2 columnas) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start px-2 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-4 lg:gap-6 items-start px-2 lg:px-6 max-w-[900px] mx-auto">
             {/* Galería */}
-            <div className="flex flex-col md:flex-row items-center md:items-start pt-2 gap-2 md:gap-4">
+            <div className="w-full flex flex-col md:flex-row items-center md:items-start pt-2 gap-2 md:gap-4">
               {/* Thumbnails */}
               <div className="flex flex-row md:flex-col gap-2 items-center md:items-start mb-2 md:mb-0">
                 {product.pictures.map((img) => (
@@ -121,16 +121,16 @@ export default function ProductDetail() {
                 ))}
               </div>
               {/* Imagen principal */}
-              <div className="flex items-center justify-center bg-white w-full md:ml-4">
+              <div className="flex items-center justify-center bg-white w-full lg:w-[400px] lg:h-[520px] md:ml-4">
                 <img
                   src={selectedImage.url.startsWith('http') ? selectedImage.url.replace('http://localhost:3000', '') : selectedImage.url}
                   alt={product.title}
-                  className="object-contain w-full max-w-[480px] h-auto max-h-[520px]"
+                  className="object-contain w-full h-full max-w-full max-h-full"
                 />
               </div>
             </div>
             {/* Detalles principales */}
-            <div className="pt-2 flex flex-col gap-0 min-w-0">
+            <div className="pt-2 flex flex-col gap-0 min-w-0 w-full max-w-[480px] md:text-base sm:text-sm overflow-hidden">
               <div className="flex flex-col gap-2 mb-4">
                 {/* Línea 1: Logo + link + tilde */}
                 <div className="flex items-center gap-2 min-w-0">
@@ -154,7 +154,7 @@ export default function ProductDetail() {
                 </div>
               </div>
               {/* Título */}
-              <h1 className="text-lg md:text-[1.45rem] font-bold text-gray-900 mb-2 leading-tight">{product.title}</h1>
+              <h1 className="text-lg md:text-[1.45rem] font-bold text-gray-900 mb-2 leading-tight break-words">{product.title}</h1>
               {/* Estrellas y reviews */}
               <div className="flex items-center gap-1 mb-1.5 flex-wrap">
                 <span className="text-[#3483fa] font-semibold text-base">4.8</span>
