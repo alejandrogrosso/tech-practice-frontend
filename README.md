@@ -23,7 +23,3 @@ tech-practice-frontend/
 ├── public/              # Archivos estáticos
 └── ...
 ```
-
-## Convención de nombres de Jest
-- La carpeta `__tests__` en la raíz sigue la convención de Jest para identificar automáticamente archivos de test.
-- Jest busca carpetas que empiecen con `__` para ejecutar los tests sin configuración adicional.
