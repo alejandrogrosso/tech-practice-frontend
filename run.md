@@ -5,7 +5,7 @@ Este frontend está construido con Next.js y Tailwind CSS.
 ## Instalación
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ## Variables de entorno
