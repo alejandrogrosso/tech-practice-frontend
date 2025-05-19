@@ -6,4 +6,15 @@ Este proyecto es un clon de la página de detalle de producto de Mercado Libre, 
 - **Tests:** Jest, React Testing Library
 - **Propósito:** Prototipo de página de producto para práctica técnica.
 
-Para instrucciones de instalación, ejecución y pruebas, consulta el archivo `run.md` en esta misma carpeta. 
+Para instrucciones de instalación, ejecución y pruebas, consulta el archivo `run.md` en esta misma carpeta.
+
+## Estructura de carpetas principal
+```
+tech-practice-frontend/
+├── __tests__/           # Tests en la raíz (convención de Jest)
+├── app/                 # Páginas y rutas de Next.js
+├── components/          # Componentes reutilizables
+├── lib/                 # Utilidades y lógica de negocio
+├── public/              # Archivos estáticos
+└── ...
+```
