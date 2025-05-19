@@ -37,7 +37,7 @@ export default function ProductDetail() {
   useEffect(() => {
     setLoadingSamsung(true)
     setErrorSamsung(null)
-    fetch(`${API_BASE}/products/brand/Samsung/showcase`)
+    fetch(`${API_BASE}/products/featured?brand=Samsung`)
       .then(res => {
         if (!res.ok) throw new Error('No se pudieron cargar los productos de Samsung')
         return res.json()
